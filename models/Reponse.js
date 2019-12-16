@@ -29,3 +29,24 @@ exports.saveRp =  (myobj)=>
 
       
 }
+exports.getAllBytitre =  (titreReq)=>
+{
+    console.log("jjjjj")
+    
+     return new Promise ((resolve, reject)=>{
+        MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+            var dbo = db.db(base);
+            var query = { titre: titreReq};
+            dbo.collection(table).find(query).toArray(function(err, result) {
+              if (err) throw err;
+              //console.log(result)
+              resolve(result)
+              
+              db.close();
+            })
+          })
+       
+      })
+    
+}
