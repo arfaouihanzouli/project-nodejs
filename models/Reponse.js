@@ -9,7 +9,6 @@ const base = "project"
 
 exports.saveRp =  (myobj)=>
 {
-    console.log("rp")
     
      return new Promise ((resolve, reject)=>{
        
@@ -31,7 +30,7 @@ exports.saveRp =  (myobj)=>
 }
 exports.getAll =  (titreReq)=>
 {
-    console.log("jjjjj")
+    
     
      return new Promise ((resolve, reject)=>{
         MongoClient.connect(url, function(err, db) {
@@ -40,7 +39,7 @@ exports.getAll =  (titreReq)=>
             
             dbo.collection(table).find({}).toArray(function(err, result) {
               if (err) throw err;
-              //console.log(result)
+             
               resolve(result)
               
               db.close();
@@ -52,7 +51,7 @@ exports.getAll =  (titreReq)=>
 }
 exports.getAllDistinctEmail =  (titreReq)=>
 {
-    console.log("jjjjj")
+    
     
      return new Promise ((resolve, reject)=>{
         MongoClient.connect(url, function(err, db) {
@@ -61,7 +60,7 @@ exports.getAllDistinctEmail =  (titreReq)=>
             
             dbo.collection(table).distinct("email",function(err, result) {
               if (err) throw err;
-              //console.log(result)
+              
               resolve(result)
               
               db.close();
@@ -73,7 +72,7 @@ exports.getAllDistinctEmail =  (titreReq)=>
 }
 exports.getAllBytitre =  (titreReq)=>
 {
-    console.log("jjjjj")
+    
     
      return new Promise ((resolve, reject)=>{
         MongoClient.connect(url, function(err, db) {
@@ -82,7 +81,7 @@ exports.getAllBytitre =  (titreReq)=>
             var query = { titre: titreReq};
             dbo.collection(table).find(query).toArray(function(err, result) {
               if (err) throw err;
-              //console.log(result)
+             
               resolve(result)
               
               db.close();
@@ -94,7 +93,7 @@ exports.getAllBytitre =  (titreReq)=>
 }
 exports.getAllByEmail =  (titreReq)=>
 {
-    console.log("jjjjj")
+    
     
      return new Promise ((resolve, reject)=>{
         MongoClient.connect(url, function(err, db) {
@@ -103,7 +102,7 @@ exports.getAllByEmail =  (titreReq)=>
             var query = { email: titreReq};
             dbo.collection(table).find(query).toArray(function(err, result) {
               if (err) throw err;
-              //console.log(result)
+             
               resolve(result)
               
               db.close();

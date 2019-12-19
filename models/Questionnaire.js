@@ -7,7 +7,7 @@ const base = "project"
 
 exports.getall =  ()=>
 {
-    console.log("jjjjj")
+    
     
      return new Promise ((resolve, reject)=>{
         MongoClient.connect(url, function(err, db) {
@@ -15,7 +15,7 @@ exports.getall =  ()=>
             var dbo = db.db(base);
             dbo.collection(table).find({}).toArray(function(err, result) {
               if (err) throw err;
-              //console.log(result)
+             
               resolve(result)
               
               db.close();
@@ -70,7 +70,7 @@ exports.getByTitre =  (titreReq)=>
 }
 exports.test =  ()=>
 {
-    console.log("jjjjj")
+    
     
      return new Promise ((resolve, reject)=>{
         MongoClient.connect(url, function(err, db) {
