@@ -78,7 +78,7 @@ exports.getAllBytitre =  (titreReq)=>
         MongoClient.connect(url, function(err, db) {
             if (err) throw err;
             var dbo = db.db(base);
-            var query = { titre: titreReq};
+            var query = { titreQuestionnaire: titreReq};
             dbo.collection(table).find(query).toArray(function(err, result) {
               if (err) throw err;
              

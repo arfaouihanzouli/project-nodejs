@@ -10,10 +10,9 @@ exports.StQte = async (req , res , next)=>
          
       var resArr = [];
        for (const key in qte) {
-           console.log(qte[key].titre)
+          
            rp = await Reponse.getAllBytitre(qte[key].titre)
-           console.log(rp)
-           console.log(rp.length)
+
            resArr.push({
             titre: qte[key].titre,
             nbrRep: rp.length
@@ -32,10 +31,9 @@ exports.StPersonne = async (req , res , next)=>
          
     var resArr = [];
        for (const key in rp) {
-           console.log(rp[key])
+          
           resRp = await Reponse.getAllByEmail(rp[key])
-           console.log(resRp)
-           console.log(resRp.length)
+           
            resArr.push({
             email: rp[key],
             nbrRep:resRp.length
