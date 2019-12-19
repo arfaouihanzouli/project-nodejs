@@ -29,6 +29,48 @@ exports.saveRp =  (myobj)=>
 
       
 }
+exports.getAll =  (titreReq)=>
+{
+    console.log("jjjjj")
+    
+     return new Promise ((resolve, reject)=>{
+        MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+            var dbo = db.db(base);
+            
+            dbo.collection(table).find({}).toArray(function(err, result) {
+              if (err) throw err;
+              //console.log(result)
+              resolve(result)
+              
+              db.close();
+            })
+          })
+       
+      })
+    
+}
+exports.getAllDistinctEmail =  (titreReq)=>
+{
+    console.log("jjjjj")
+    
+     return new Promise ((resolve, reject)=>{
+        MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+            var dbo = db.db(base);
+            
+            dbo.collection(table).distinct("email",function(err, result) {
+              if (err) throw err;
+              //console.log(result)
+              resolve(result)
+              
+              db.close();
+            })
+          })
+       
+      })
+    
+}
 exports.getAllBytitre =  (titreReq)=>
 {
     console.log("jjjjj")
@@ -38,6 +80,48 @@ exports.getAllBytitre =  (titreReq)=>
             if (err) throw err;
             var dbo = db.db(base);
             var query = { titre: titreReq};
+            dbo.collection(table).find(query).toArray(function(err, result) {
+              if (err) throw err;
+              //console.log(result)
+              resolve(result)
+              
+              db.close();
+            })
+          })
+       
+      })
+    
+}
+exports.getAllByEmail =  (titreReq)=>
+{
+    console.log("jjjjj")
+    
+     return new Promise ((resolve, reject)=>{
+        MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+            var dbo = db.db(base);
+            var query = { email: titreReq};
+            dbo.collection(table).find(query).toArray(function(err, result) {
+              if (err) throw err;
+              //console.log(result)
+              resolve(result)
+              
+              db.close();
+            })
+          })
+       
+      })
+    
+}
+exports.findQuery =  (query)=>
+{
+    console.log("jjjjj")
+    
+     return new Promise ((resolve, reject)=>{
+        MongoClient.connect(url, function(err, db) {
+            if (err) throw err;
+            var dbo = db.db(base);
+            
             dbo.collection(table).find(query).toArray(function(err, result) {
               if (err) throw err;
               //console.log(result)

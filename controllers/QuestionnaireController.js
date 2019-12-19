@@ -39,3 +39,25 @@ exports.qteByTitre = async (req , res , next)=>
  
    res.send(qte)
 }
+exports.test = async (req , res , next)=>
+{ 
+ 
+    
+   qte = await Questionnaire.test()
+
+
+  /* ab= qte.questionsSimples
+   for(var a in ab){
+      console.log(ab[a].titreQuestionSimple);
+  }
+   ab= req.body.qcm
+     for(var a in ab){
+        console.log(ab[a].titreQuestion);
+        ac=ab[a].options
+        for(var b in ac){
+         console.log(ac[b].titreOption);
+     }
+    }*/
+ 
+   res.send(qte)
+}
