@@ -23,6 +23,7 @@ app.get('/Rp/:titre/:question',RpControler.test)
 //---------------------------statistic----------------------------------------/
 app.get('/St/question',StControler.StQte)
 app.get('/St/Person',StControler.StPersonne)
+app.get('/St',StControler.StPersonneQte)
 app.listen(3000, ()=> {
     console.log('serveur 3000')
 })
