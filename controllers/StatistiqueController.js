@@ -77,8 +77,8 @@ exports.StPersonneQte = async (req , res , next)=>
        }
        var resArr = [];
        resArr.push({
-         personne: res1Arr,
-         questionnaire: res2Arr
+         nbrRepsParEmail: res1Arr,
+         nbrRepsParQuestionnaire: res2Arr
      });
    res.send(resArr)
 }
